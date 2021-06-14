@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>next prev</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <ul class="level-1">
+                <li class="item-1">item1</li>
+                <li class="item-2">item2
+                    <ul class="level-2">
+                        <li class="item-01">item01</li>
+                        <li class="item-02">item02
+                            <ul class="level-3">
+                                <li class="item-001">item001</li>
+                                <li class="item-002">item002</li>
+                                <li class="item-003">item003</li>
+                            </ul>
+                        </li>
+                        <li class="item-03">item03</li>
+                    </ul>
+                </li>
+                <li class="item-3">item3</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script>
+        // $('.item-002').prev().css('border', '1px solid #ccc');
+        // $('.item-001').nextAll().css('border', '1px solid #ccc');
+        // $('.item-001').nextUntil('.item-003').css('border', '1px solid #ccc');
+        // $('.item-003').prevAll().css('border', '1px solid #ccc');
+        $('.item-003').prevUntil('.item-001').css('border', '1px solid #ccc');
+    </script>
+</body>
+
+</html>

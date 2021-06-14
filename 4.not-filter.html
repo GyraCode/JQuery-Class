@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>not filter</title>
+
+    <style>
+        .wrap .box {
+            width: 100px;
+            height: 100px;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="box">123</div>
+    </div>
+
+
+    <div>
+        <input type="checkbox" name="alex">
+        <span>Alex1</span>
+    </div>
+    <div>
+        <input type="checkbox" name="bill" checked>
+        <span>Bill</span>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script>
+        $("input:not(:checked) ~ span").css("background", "yellow");
+    </script>
+
+</body>
+
+</html>
