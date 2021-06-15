@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>var+Func</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+
+<body>
+    <button class="btn btn-primary">
+        Click
+    </button>
+    <h1>0</h1>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script>
+        $('.btn').click(function () {
+            console.log('hi');
+            let h1Text = $('h1').text();
+            //取得h1裡面的文字 賦值給h1Text這個變數
+            console.log('h1', $('h1').text());
+            //                從h1裡面拿到那個文字
+            // JS 在計算的時後會自動轉型 所以我們要轉型 把字串變數字再計算 才不會出錯
+            //字串轉數字，有幾中作法
+            //1.parseInt()
+            console.log('h1', parseInt(h1Text) + 1);
+
+
+            //2.利用js會自動轉型的機制 我們在字串前面加一個運算符號 +
+            //有點像是欺騙他我們有計算，所以他會自動幫我們轉成數字
+            console.log('h1', +h1Text + 1);
+
+            //2.利用js會自動轉型的機制 我們在字串前面加一個運算符號 *
+            //這邊真的有計算的過程，他會自動幫我們轉成數字的計算結果
+            console.log('h1', h1Text * 1 + 1);
+
+
+            //把h1裡面的文字 更改成新的數字顯示
+            $('h1').text(+h1Text + 1);
+        });
+    </script>
+
+</body>
+
+</html>

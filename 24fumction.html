@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function abc() {
+            console.log('abc');
+        }
+        abc();
+
+
+        //匿名函式
+        //通常用在止執行一次 而且會立即執行 (後面帶小括號)
+        (function () {
+            console.log('no name');
+        })();
+
+        //ES6 宣告涵式的方式改變，用const去宣告一個暱名涵式
+        const def = function () {
+            console.log('def')
+        };
+        def()
+
+        // function後面的小括號 倒底要幹嘛?
+        //myFunc=func簡稱
+        //其實是因為裡面可以用來傳遞參數使用的 不傳值進去就留空
+        // 假如這邊寫一個加法的func 傳進來的值會自己相加得到結果
+        //加減乘除都可以獲得結果
+
+
+        function add(a, b) {
+            console.log(a);
+            console.log(b);
+            console.log(a + b);
+            console.log(a - b);
+        };
+
+        add(123, 456);
+        add(555, 666);
+        //--------------------------------------------
+        //return 會傳 把一個計算後的結果回傳回去
+        //所以我們必須要有一個變數去承接這個回傳的結果
+        //js  因為有加減乘除 命名的話會用大寫開頭 通稱小駝峰命名法
+        function returnAddResult(a, b) {
+            return (a + b);
+        }
+
+        const myResult = returnAddResult(1, 2)
+        console.log(myResult);
+        // myResult=3
+
+        const myResult2 = returnAddResult(3, 4)
+        console.log(myResult2);
+        // myResult2=7
+
+        console.log(myResult + myResult2);
+        //10
+        // --------------------------------------------
+        //ES6 箭頭函式 我們用()=>來表示 function的簡稱
+        //JQuery 不接受箭頭函式的寫法
+
+        function normalFunc1() {
+            console.log('normalFunc 1');
+        }
+
+        const normalFunc2 = () => {
+            console.log('normalFunc2')
+        }
+
+        const arrowFunc = () => {
+            console.log('arrowFunc')
+        }
+        arrowFunc();
+
+        //箭頭函式的return 如果只有一行 可以省略return跟大括號
+        //基本上就是偷懶到極致的作法 非常多簡寫
+        const myAdd = (a, b) => a + b;
+        console.log(myAdd(5, 6));
+        //11
+        //--------------------------------------------
+        //箭頭函式如果只有一個參數也可以省略小括號
+        const logMyString = str => console.log('str'.str);
+        //                給的參數                 前面給的參數
+
+        logMyString(123)
+    </script>
+</body>
+
+</html>

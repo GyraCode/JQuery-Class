@@ -55,15 +55,43 @@
 
     <script>
         $('input').click(function () {
-            console.log('hi', $(this).parents('tr').css('background', 'red'))
-            //點擊後給hi this偏勵至tr 上背景色
+            //$(this) 是 JQ物件 可以使用JQ的方法
+            //this 是原生js 物件 兩個方法不能互通使用
+            $('tr').css('background', 'transparent');
+            //全部的TR改成透明
+            $('input:checked').closest('tr').css('background', 'lightblue');
+            //把input點擊的地方往上找TR 上背景色
+
+            //attr屬性 看HTML上的屬性標籤 通常用在預設
+            console.log('$(this).attr("check"):', $ * (this).attr("checked"));
+
+            //prop (property) 狀態 判斷現在話面是否為checked
+            console.log('$(this).prop("checked"):', $(this).prop("checked"));
+
+
+            //條件判斷式 只要式True就執行大括號裡面的動作
+            //你必須先找到關鍵判斷的因子是什麼?
+            //可以讓電腦自動幫你判斷的關鍵
+            if ($(this).prop("checked")) {
+                //改變顏色
+                console.log('true');
+                $(this).closest('tr').css('background', 'lightblue')
+            }
+            else {
+                //變回白色 透明 none
+                console.log('false');
+                $(this).closest('tr').css('background', 'transparent')
+            }
         });
 
-        if ($(this).hasClass("red")) {
-            $this.find("tr").css("background", "white");
-        } else {
-            $this.find("tr").css("background", "#F00");
-        }
+        //偷吃步方法二
+        $('input').click(function () {
+            //1.全部的tr改透明
+            $('tr').css('background', 'transparent');
+            //2.把有打勾的tr改色
+            $('input:checked').closest('tr').css('background', 'lightblue');
+        })
+
 
     </script>
 </body>

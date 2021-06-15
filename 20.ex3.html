@@ -34,7 +34,8 @@
     <script>
         $('img').click(function () {
             console.log('hi', $(this));
-            $(this).css('border', '5px solid red');
+            $(this).css('border', '5px solid red').parent()
+                .siblings().children().css('border', '5px solid transparent')
             //this為JQ的特殊代表字 意指滑鼠點擊的這個物件
             //在用JQ包起來 掛CSS
         });

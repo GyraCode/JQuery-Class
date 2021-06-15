@@ -35,7 +35,7 @@
                 </div>
                 <div class="form-group form-check">
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    <label class="form-check-label" for="exampleCheck1">Check me to look password</label>
                 </div>
                 <button type="button" class="btn btn-info auto-input">Auto Input</button>
                 <!-- 自動點擊按鈕 -->
@@ -54,8 +54,8 @@
             console.log('hi');
             console.log(event);
             $('#exampleInputUsername').val('GyRA');
-            $('#exampleInputEmail1').val('x513465@gmail.com')
-            $('#exampleInputPassword1').val('qwe123')
+            $('#exampleInputEmail1').val('x513465@gmail.com');
+            $('#exampleInputPassword1').val('qwe123');
             //val() 方法返回或设置被选元素的值 Value的簡寫
 
 
@@ -65,6 +65,19 @@
             event.preventDefault();
             console.log('hi submit');
             // 自己用 ajax 送表單內容給伺服器 未來可以自動送出
+        });
+        $('#exampleCheck1').click(function () {
+            console.log('hi');
+            if ($(this).prop("checked")) {
+                //password 看的見
+                console.log('true');
+                $('#exampleInputPassword1').attr('type', 'text');
+            }
+            else {
+                //password看不見
+                console.log('false');
+                $('#exampleInputPassword1').attr('type', 'password');
+            }
 
         });
     </script>

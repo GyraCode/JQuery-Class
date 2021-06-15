@@ -58,10 +58,11 @@
             integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
         <script>
-            $('div').click(function () {
+            $('.box').click(function () {
                 console.log('hi', $(this));
-                $(this).css('background', 'lightblue');
-                //找到div 掛css
+                $(this).nextAll().css('background', 'lightblue');
+
+
             });
         </script>
 </body>

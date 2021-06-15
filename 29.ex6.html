@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>ex6</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <form action="">
+                <div class="form-row">
+                    <div class="form-group">
+                        <select name="city" id="city" class="form-control">
+                            <option value="0">基隆</option>
+                            <option value="1">台北</option>
+                            <option value="2">新北</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <select name="distrist" id="distrist" class="form-control">
+                            <option value="0">七堵區</option>
+                            <option value="1">中正區</option>
+                            <option value="2">暖暖區</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script>
+        let districtArray = [
+            ['七堵', '中正', '暖暖'],
+            ['中正', '大安', '信義'],
+            ['蘆洲', '三重', '新店'],
+        ];
+
+        // 1.當使用者改變city 的時間點抓到了
+        $('#city').change(function () {
+            //利用city的vul () , 可以取得當時使用者選哪一個option
+            //在這個change的function裡面 $this代表的就是 $(#city)
+            console.log('hi', $(this).val());
+            const cityVal = $(this).val();
+
+            //2.我們需要取得這個 CITY 的區域名稱陣列
+            console.log('array', districtArray[cityVal]);
+            const distristData = districtArray[cityVal]
+
+
+            //3.利用迴圈 去修改第二個下拉式選單裡的option名稱
+            // 這邊的作法是  先選取DOM有幾個 再把資料改進HTML裡面
+
+            //$('#distrist option')會選到三個option的陣列
+
+            // JQ的迴圈方法是 .each() 一個一個DOM 依次拿出來操作
+            // 在這裡就是把三個option 依次拿出來操作(修改裡面的文字)
+
+            // JQ的 .each() 裡面的 fuction可以放預設的index參數
+            //這個index 代表的是妳第幾次執行迴圈的意思
+            $('#distrist option').each(function (index) {
+                //我們可以利用 .text() 拿到DOM裡的文字
+                //console.log('each:'.$(this).text());
+                //console.log('index', index)
+                //console.log('data', distristData[index]);
+
+
+
+                //再來就是我要修改下拉式選單裡的文字
+                //修改的話我們可以在 .text( ) 裡面放字串即可
+                //這裡的$(this) 代表的是三個 option 看我迴圈跑第幾次 $(this)就代表第幾個option
+                $(this).text(distristData[index] + '區')
+
+            });
+
+            //另一個方向的作法是 我們從資料去跑迴圈
+            //依序修改第幾個option的text ()
+
+            $(distristData).each(function (index) {
+                console.log('hi', distristData[index]);
+                $('#distrist option').eq(index).text(distristData[index] + '區');
+            })
+        });
+    </script>
+</body>
+
+</html>
