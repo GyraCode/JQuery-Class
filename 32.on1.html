@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>on1</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0Dg
+    iMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+
+</head>
+<body>
+    <button id="clickMe" class="btn btn-primary">Click Me!</button>
+    <ul>
+        <li>item1</li>
+        <li>item2</li>
+    </ul>
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"></script>
+    <script>
+      
+      let itemIndex=3
+      $('#clickME').on('click',function(){
+        //   console.log('hi on click')
+        $('ul').append(`<li>item ${itemIndex} </li>`)
+        itemIndex++;
+        // 會回傳運算元加1前的值。
+        // 關於++ (增加) 假如 x是 3，那 ++x 將把 x 設定為 4 並回傳 4，而 x++ 會回傳 3 ， 接著才把 x 設定為 4。
+      });
+
+      
+
+    //之前學的綁定方法 無法綁定動態產生的條件
+      //   $('li').click(function () {
+    //       console.log('li clicked');
+    //   });
+
+    //再直細長被找一個已存在的結點 往下find 'li' 動態綁定 click 事件
+    $('ul').on('click','li',function(){
+        console.log('li clicked');
+    });
+    </script>
+</body>
+</html>

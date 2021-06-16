@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>object</title>
+</head>
+<body>
+    <script>
+        //object 物件
+        //key:vaule 組合而成的一組資料
+        //陣列是有順序的資料 取得資料的方式是用array[0]
+        //但是 object 是沒有順序的資料 所以它靠的是key去判斷妳要拿哪一筆資料
+        const myobj = {
+            name:'GyRA',
+            email:'x513465@gmail.com',
+            age:'24',
+            mobile:'0970277328',
+            class:['HTML', 'CSS','JQuery'],
+            sayHI:function(){
+                console.log('hi');
+            }
+        }
+
+        //點表示法
+        console.log('name',myobj.name);
+        console.log('email',myobj.email);
+
+        //中括號表示法
+        console.log('age',myobj['age']);
+        console.log('mobile',myobj['mobile']);
+        console.log('calss',myobj['class']);
+
+        myobj.sayHI();
+
+    </script>
+</body>
+</html>
+

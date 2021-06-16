@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex8</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+
+    <style>
+        .wrap {
+            width: 800px;
+            height: 400px;
+            background-color: #ccc;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: lightpink;
+            position: absolute;
+            top: 0;
+            left: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="box"></div>
+    </div>
+
+    <div class="py-3 text-center">
+        <div class="py-1">
+            <button id="up" class="btn btn-info">
+                <i class="fas fa-caret-up"></i>
+            </button>
+        </div>
+        <div class="py-1">
+            <button id="left" class="btn btn-info mx-3">
+                <i class="fas fa-caret-left"></i>
+            </button>
+            <button id="right" class="btn btn-info mx-3">
+                <i class="fas fa-caret-right"></i>
+            </button>
+        </div>
+        <div class="py-1">
+            <button id="down" class="btn btn-info">
+                <i class="fas fa-caret-down"></i>
+            </button>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).on('keydown',function () {
+            console.log('hi',event);
+
+            if(event.which === 39) {
+               //代表使用者按了右鍵
+                console.log('right')
+            }
+
+            if(event.which === 38) {
+               //代表使用者按了左鍵
+                console.log('left')
+            }
+            
+            if(event.which === 37) {
+               //代表使用者按了上鍵
+                console.log('top')
+            }
+
+            if(event.which === 40) {
+               //代表使用者按了下鍵
+                console.log('down')
+            }
+        })
+    </script>
+</body>
+
+</html>

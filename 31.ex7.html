@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex7</title>
+    <style>
+        body {
+            margin: 0;
+            height: 300vh;
+            transition: .5s;
+        }
+
+        .wrap {
+            width: 100%;
+            height: 50px;
+            background-color: #ccc;
+            position: fixed;
+            top: 0;
+        }
+
+        .box {
+            background-color: pink;
+            height: 50px;
+            width: 10%;
+        }
+
+        .img-wrap{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            top: 700px;
+            left: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+
+            transform: translateY(30px);
+            opacity: 0;
+            transition: .5s;
+        }
+
+        .img-wrap img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="box">
+
+        </div>
+    </div>
+
+    <div class="img-wrap">
+        <img src="/imgs/person1.jpg" alt="">
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script> //   6/16 10:40 影片 
+        $('box').css('width', (50 + '%'))
+        // console.log('body 全長:', $('body').height())
+
+        // console.log('分子/ 分母:', $(window).scrollTop() / $('body').height())
+        // console.log('乘以100:', ($(window).scrollTop() / $('body').height()) * 100);
+        // console.log('去掉後面小數點:', Math.floor(($(window).scrollTop() / $('body').height()) * 100))
+        // console.log('後面加一個%符號:', Math.floor(($(window).scrollTop() / $('body').height()) * 100) + '%');
+
+        $('.box').css('width', Math.floor(($(window).scrollTop() / $('body').height()) * 100) + '%');
+
+        $(window).scroll(function () {
+            //100vh = 1/100 * window height
+            const bodyMinusWindowHeight = $('body').height() - $(window).height();
+
+            const percentage = Math.floor(($(window).scrollTop() / bodyMinusWindowHeight) * 100)
+
+
+            console.log('percentage', percentage + '%');
+            $('.box').css('width', percentage + '%');
+
+            //在事件裡面加入一個條件判斷式
+            // 兩個或以上條件一起判斷 可以用&&來連結 所有條件同時成立才為True
+            if ($(window).scrollTop() > 500 && $(window).scrollTop() <= 600) {
+                $('body').css('background', 'orange');
+                $('.img-wrap').css('transform','translateY(0)').css('opacity','1')
+            }
+            
+            else if ($(window).scrollTop() > 600) {
+                $('body').css('background', 'red');
+            }
+            else {
+                $('body').css('background', 'white');
+                $('.img-wrap').css('transform','translateX(-500px)')
+                $('.img-wrap').css('transform','translateY(0)').css('opacity','0')
+
+            }
+        });
+
+
+          //scroll事件 頂端box的w是0 底端要到100
+          //可以consol log 看一下
+          //100vh 就是切成100份的高
+    </script>
+</body>
+
+</html>

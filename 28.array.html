@@ -35,12 +35,70 @@
         //迴圈的意思是 資料有幾筆 就會直行幾次Fuction
         //element 就是每次迴圈拿的一筆資料 每次都拿不同筆 直到跑完迴圈為止
         //以districtArray陣列為例 我們迴圈會直行三次 總共拿三次 element
-        districtArray.forEach(function (element) {
-            console.log('element', element);
-            element.forEach(function (item) {
-                console.log('item', item);
-            })
-        });
+        // districtArray.forEach(function (element) {
+        //     console.log('element', element);
+        //     element.forEach(function (item) {
+        //         console.log('item', item);
+        //     })
+        // });
+
+        //最基礎的迴圈(for...loop)
+        for (var i = 0; i < 5; i++) {
+            //i ++ (將運算元增加1回傳) i<5 
+            console.log('i:', districtArray[i]);
+            for (var j = 0; j < 3; j++) {
+                //i會重複 資料會重疊 這邊再給一個變數
+                console.log('i:', districtArray[i][j]);
+            }
+        }
+
+
+        //如果我們知道要跑的次數=全部的資料個數有幾筆的話
+        //那我們設定條件的地方 會改成[陣列的長度] (array.length)        
+        for (var i = 0; i < districtArray.length; i++) {
+
+            console.log('i:', districtArray[i]); // i=0
+
+            for (var j = 0; j < districtArray[i].length; j++) {
+
+                console.log('i:', districtArray[i][j]);
+            }
+        }
+
+        //非同步 
+        //JS是單執行續 如果中間被阻擋了 後面就不會在執行
+        //在需要等待的時後 為了不阻礙執行流程 我們會把這件是丟給瀏覽器提供的API
+        //API (應用程式介面  ->別人先寫好的程式碼 你去互叫他)
+        //常見的就是SetTimeout  (修但幾累 有點類似delay)
+        //SetInterval ,Ajax...
+        //這個秒數不是絕對準確的 頂多只能說是最少幾秒後才會執行 可能會超過
+        //如果我的主線成執行時間超過這個等代的秒數 那必須等我執行完 才可以執行setTimeout的東西
+        // setTimeout() => {
+        //     console.log('hi');
+        // } , 3000);
+
+
+
+        //最基礎的迴圈(for...loop)
+        // !!面試常問 為什麼i=3 !! 影片 6/16早上9:40以後
+        for (var i = 0; i < 3; i++) {
+            setTimeout(() => {
+                console.log('i:', i);
+            }, 100);
+
+        }
+
+        //ES5必須使用閉包的概念才能解決這個變數的問題
+        //閉包創見一個封閉的環境 裡面的變數會變鎖定在當時的數值
+        //ES6 的解決辦法 直接宣告方式改成let來解決
+
+        for (let i = 0; i < 3; i++) {
+            setTimeout(() => {
+                console.log('let i:', i);
+            }, 100);
+
+        }
+
 
     </script>
 </body>
