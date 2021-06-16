@@ -68,46 +68,46 @@
             if(event.which === 39) {
                //代表使用者按了右鍵
                 console.log('right')
-                $('.box').css('top', '-=20')
+                $('.box').css('left', '+=30')
             }
 
-            if(event.which === 38) {
+            if(event.which === 37) {
                //代表使用者按了左鍵
                 console.log('left')
-                $('.box').css('left', '-=20')
+                $('.box').css('left', '-=30')
             }
             
-            if(event.which === 37) {
+            if(event.which === 38) {
                //代表使用者按了上鍵
-                console.log('top')
-                $('.box').css('left', '+=20')
+                console.log('up')
+                $('.box').css('top', '-=30')
             }
 
             if(event.which === 40) {
                //代表使用者按了下鍵
                 console.log('down')
-                $('.box').css('top', '+=20')
+                $('.box').css('top', '+=30')
             }
         })
 
         $('#up').click('up',function () {
             console.log('up');
-            $('.box').css('top', '-=20')
+            $('.box').css('top', '-=30')
         })
 
         $('#left').click('left',function () {
             console.log('left');
-            $('.box').css('left', '-=20')
+            $('.box').css('left', '-=30')
         })
 
         $('#right').click('right',function () {
             console.log('right');
-            $('.box').css('left', '+=20')
+            $('.box').css('left', '+=30')
         })
 
         $('#down').click('down',function () {
             console.log('down');
-            $('.box').css('top', '+=20')
+            $('.box').css('top', '+=30')
         })
     </script>
 </body>
