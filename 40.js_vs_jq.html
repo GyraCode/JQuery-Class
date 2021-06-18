@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>on1</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+<body>
+    <button id="clickMe" class="btn btn-primary">Click Me!</button>
+    <button id="checkout" class="btn btn-primary">Checkout!</button>
+    <ul>
+        <li>item 1</li>
+        <li>item 2</li>
+        <!-- append -->
+    </ul>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script>
+
+        // 說明 getElement 與 querySelector 的差異
+        // 1.資料型態不一樣 一個是 HTMLCollection 一個是 NodeList
+        // 2.動態後來才新增的節點，HTMLCollection會變動，NodeList只會停在選取時的狀態
+        const htmlCollection = document.getElementsByTagName('li');
+        const querrySelector = document.querySelectorAll('li');
+
+        $('#checkout').click(function () {
+            console.log('htmlCollection', htmlCollection);
+            console.log('querrySelector', querrySelector);
+        });
+
+        // 原生JS 的綁定，多個物件，必須自己跑迴圈
+        for (let i = 0; i < htmlCollection.length; i++) {
+            console.log('i:', htmlCollection[i]);
+            htmlCollection[i].addEventListener('click', function () {
+            }, false);
+        }
+
+        // jQ的事件綁定，簡短很多
+        $('li').click(function () {
+            console.log('hi');
+        })
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ramdom</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: rgba(204, 204, 204, 0.747);
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    
+    
+        <script
+          src="https://code.jquery.com/jquery-3.6.0.js"
+          integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+          crossorigin="anonymous"></script>
+    <script>
+        //可以亂數取一個從 0-0.999999 之間的數字
+        
+        // const myRandom=Math.random
+        
+        // console.log('random',myRandom);
+        
+        // console.log('random',myRandom*256);
+
+        // console.log('random', Math.floor(myRandom*256));
+
+        function getRandomInt(){
+            const myRandom=Math.random();
+            return Math.floor(myRandom*256);
+        }
+
+        //呼叫 getRandomInt() 三次 個別取得不同的亂數 當做RGB三個顏色的數字
+        $('.box').css('background-color',`rgb(${getRandomInt()},${getRandomInt()},${getRandomInt()}))`)
+    </script>
+</body>
+</html>

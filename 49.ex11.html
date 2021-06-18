@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex11(sticky)</title>
+
+    <style>
+        body {
+            margin: 0;
+
+        }
+
+        .allPositions {
+            position: static;
+            position: relative;
+            position: absolute;
+            position: fixed;
+            position: sticky;
+        }
+
+        section {
+            width: 100%;
+            height: calc(100vh - 100px);
+            background-color: antiquewhite;
+        }
+
+        .nav {
+            width: 100%;
+            height: 100px;
+            background: lightblue;
+            text-align: center;
+            color: #fff;
+        }
+
+        .nav.fixed {
+            position: fixed;
+            top: 0;
+        }
+
+        .boxes {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <section>Hi</section>
+    <nav class="nav">I'm Nav</nav>
+
+    <div class="wrap">
+        <div class="boxes autobg"></div>
+        <div class="boxes autobg"></div>
+        <div class="boxes autobg"></div>
+        <div class="boxes autobg"></div>
+        <div class="boxes autobg"></div>
+        <div class="boxes autobg"></div>
+        <div class="boxes autobg"></div>
+        <div class="boxes autobg"></div>
+        <div class="boxes autobg"></div>
+        <div class="boxes autobg"></div>
+        <div class="boxes autobg"></div>
+        <div class="boxes autobg"></div>
+    </div>
+
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+    <script>
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * Math.floor(max - 50) + 100);
+        }
+
+        function getRBGA() {
+            return `linear-gradient(135deg, rgba(${getRandomInt(256)},${getRandomInt(256)},${getRandomInt(256)},.5), rgba(${getRandomInt(256)},${getRandomInt(256)},${getRandomInt(256)},.8)`
+        }
+
+        const elements = document.querySelectorAll('.autobg');
+
+        Array.from(elements).forEach((element, index) => {
+            element.style.backgroundImage = getRBGA();
+        });
+
+    // $('.autobg').each(function (index, currentElement) {
+    //     currentElement.style.backgroundImage = getRBGA();
+    // });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script>
+        const navTop = $('.nav').offset().top;
+
+
+        $(window).scroll(function () {
+            console.log($(window).scrollTop());
+            console.log($('.nav').offset().top);
+            // 1.Nav 滑動到視窗頂部的時機點？
+            // 2.Nav 如何固定在頂端？（css position屬性)
+
+            if ($(window).scrollTop() >= navTop) {
+                // 把 NAV 固定在頂端
+                $('.nav').addClass('fixed');
+            }
+            else {
+                // 把 NAV 取消固定在頂端
+                $('.nav').removeClass('fixed');
+            }
+
+        });
+    </script>
+</body>
+
+</html>

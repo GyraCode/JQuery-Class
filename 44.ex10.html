@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex10</title>
+
+    <style>
+        .wrap{
+            width: 800px;
+            height: 400px;
+            display: flex;
+        }
+
+        .demo-area{
+            width: 50%;
+            height: 100%;
+            background-color: #ccc;
+            margin-right: 4%;
+        }
+
+        .color-selector-area{
+            width: 50%;
+            height: 100%;
+            background-color: #ccc;
+            display: flex;
+            flex-wrap:wrap ;
+
+        }
+
+        .color-selector{
+            width: 40px;
+            height: 40px;
+            background-color: pink;
+            margin: 10px;
+            border-radius: 50%;
+        }
+
+        .color-selector:nth-child(2){
+            background-color: plum;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="demo-area">
+
+        </div>
+
+        <div class="color-selector-area">
+            <div class="color-selector btn1"></div>
+            <div class="color-selector btn2"></div>
+        </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"></script>
+
+      <script>
+          $('.btn1').click(function(){
+              console.log('pink!')
+            $('.demo-area').css('background','pink')
+          });
+
+          $('.btn2').click(function(){
+              console.log('pink!')
+            $('.demo-area').css('background','plum')
+          });
+
+
+          //老師的做法
+          //1.點擊color-selector 觸發一個function
+          $('.color-selector').click(function(){
+              //2.拿到我自己的背景色
+              const myBgColor = $(this).css('background',myBgColor);
+              //3.把demo-area 的背景色改成我的顏色
+              $('.demo-area').css('backgorund',myBgColor)
+          });
+
+
+          for(let i =0 ; i<10; i++)
+          $('.color-selector-area').append(`<div class="color-selector"></div>`);
+          
+      </script>
+</body>
+</html>

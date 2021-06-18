@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>width</title>
+
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: #ccc;
+            padding: 20px;
+            box-sizing: border-box;
+            border: 5px solid #000;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"></script>
+
+      <script>
+          
+          // 6/18 下午14:50以後
+          //content
+          console.log('width',$('.box').width());
+          console.log('height',$('.box').width());
+          
+          //content+padding
+          console.log('innerwidth',$('.box').innerwidth());
+          console.log('innerheight',$('.box').innerheight());
+          
+          //content+padding+border
+          console.log('outerwidth',$('.box').outerwidth());
+          console.log('outerheight',$('.box').outerheight());
+
+          //content+padding+border+margin
+          console.log('outerwidth',$('.box').outerwidth(true));
+          console.log('outerheight',$('.box').outerheight(trye));
+      </script>
+</body>
+</html>

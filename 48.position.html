@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>position</title>
+
+    <style>
+        body {
+            margin: 100px;
+        }
+
+        .section {
+            width: 1000px;
+            height: 1000px;
+            background: #000;
+            padding: 200px;
+
+        }
+
+        .wrap {
+            width: 800px;
+            height: 400px;
+            background-color: #ccc;
+            padding: 10px;
+            position: relative;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: #afa;
+            position: absolute;
+            transition: .5s;
+            top: 210px;
+            left: 210px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="section">
+        <div class="wrap">
+            <div class="box"></div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script>
+        // 可以拿來計算 box 的 absolute 位置
+        console.log('box postion:', $('.box').position());
+
+        const boxTop = $('.box').position().top;
+        const boxLeft = $('.box').position().left;
+
+        $('.box').click(function () {
+            $('.box').css({
+                top: `${boxTop + Math.random() * 300}px`,
+                left: `${boxLeft + Math.random() * 300}px`
+            })
+        });
+
+    </script>
+</body>
+
+</html>

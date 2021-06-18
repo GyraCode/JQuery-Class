@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arraypush</title>
+</head>
+<body>
+    <script>
+        const myArray =[1,2,3];
+        //這是錯誤寫法 const宣告的變數不能重新複製
+        //myArray = [1,2,3,4];
+
+        console.log('myArray1',myArray);
+
+        //從尾端增加一筆新資料 列陣長度+1
+        //myArray.push(4);
+
+        //從尾端拿最後一個值出來 列陣長度-1
+        // const myPop = myArray.pop()
+        // console.log('myPop',myPop)
+
+        // const myPop = myArray.pop()
+        // console.log('myPop',myPop2)
+
+        //從前面加入一筆新資料 列陣長度+1 而且資料的位置會遞移+1
+        // myArray.unshift(0);
+
+       const myShift= myArray.shift();
+       console.log('myShift',myShift);
+
+
+        console.log('myArray2',myArray);
+    </script>
+</body>
+</html>
